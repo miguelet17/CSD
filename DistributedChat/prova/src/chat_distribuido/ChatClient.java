@@ -6,6 +6,7 @@ import java.rmi.*;
 import java.rmi.registry.*;
 
 //
+
 // Main Client process.
 // It creates a user interface. On UI events that happen at the UI interface, this class 
 // methods are invoked to connect to the server, to retrieve its channels, to disconnect, etc.
