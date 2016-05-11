@@ -2,7 +2,7 @@
 
  
 
-public class Pool0 implements Pool {	//free access
+public  class Pool0 implements Pool {	//free access
 	Log log;
 	public void make(Log log0) 			{log=log0;}
 	

@@ -6,29 +6,30 @@ public class Pool4 extends Pool0 {    // kids cannot enter if there are instruct
     private int     contador_xiquets      = 0;
     private int     contador_instructor   = 0;
     private int     capacidad             = 0;
-    private boolean instructores_saliendo = false;
+    private int instructores_saliendo = 0;
 
     public synchronized long instructorRests(int id) {
         while (((contador_instructor == 1) && (contador_xiquets > 0))
-                || (contador_xiquets + 1 >= contador_instructor * log.maxKI())) {    // ||  ((maxKI / contador_instructor) <  contador_instructor   )
-            instructores_saliendo = true;
+                || (contador_xiquets  > (contador_instructor - 1) * log.maxKI())) {    // ||  ((maxKI / contador_instructor) <  contador_instructor   )
+            instructores_saliendo ++;
             log.leaveWait(id);
             try {
                 wait();
             } catch (Exception e) {}
         }
-
         if (contador_instructor > 0) {
             contador_instructor--;
             capacidad--;
-            instructores_saliendo = false;
+
         }
+        if (instructores_saliendo > 0){ instructores_saliendo--;}
+
         notifyAll();
         return log.rests(id);
     }
 
     public synchronized long instructorSwims(int id) {
-        while (capacidad > 4) {
+        while (capacidad >= log.capacity()) {
             try {
                 log.enterWait(id);
                 wait();
@@ -51,28 +52,23 @@ public class Pool4 extends Pool0 {    // kids cannot enter if there are instruct
     }
 
     public synchronized long kidSwims(int id) {
-        while (((contador_instructor == 0) || (instructores_saliendo == true))
-                || (contador_xiquets + 1 >= contador_instructor * log.maxKI())
-                || (capacidad > log.capacity())) {
+        while (((contador_instructor == 0) || (instructores_saliendo > 0))
+                || (contador_xiquets  >= contador_instructor * log.maxKI())
+                || (capacidad >= log.capacity())) {
             log.enterWait(id);
             try {
-
                 wait();
             } catch (Exception e) {
-
             }
         }
-
         contador_xiquets++;
         capacidad++;
-       // notifyAll();
+        notifyAll();
         return log.swims(id);
     }
-
     public synchronized void make(Log log1) {
         log = log1;
     }
 }
 
 
-//~ Formatted by Jindent --- http://www.jindent.com
