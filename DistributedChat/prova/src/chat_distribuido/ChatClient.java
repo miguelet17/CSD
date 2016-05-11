@@ -20,7 +20,6 @@ public class ChatClient implements MessageListener {
     private IChatUser myUser = null;  // Our own user
     private ChatUI ui = null;         // User interface for fancy UI-driven chatting.
     private boolean bConnected = false;
-
     public ChatClient(ChatConfiguration conf) {
         this.conf = conf;
     }

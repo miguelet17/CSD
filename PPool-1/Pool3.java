@@ -11,7 +11,7 @@ public class Pool3 extends Pool0 {    // max capacity
         while (((contador_instructor == 1) && (contador_xiquets > 0))
                 || (contador_xiquets + 1 >= contador_instructor * log.maxKI())) {    // ||  ((maxKI / contador_instructor) <  contador_instructor   )
             try {
-           //     log.leaveWait(id);
+                log.leaveWait(id);
 
                 // log.enterWait(id);
                 wait();
@@ -34,7 +34,7 @@ public class Pool3 extends Pool0 {    // max capacity
             try {
 
                 // log.leaveWait(id);
-              //  log.enterWait(id);
+                log.enterWait(id);
                 wait();
             } catch (Exception e) {}
         }
@@ -45,6 +45,7 @@ public class Pool3 extends Pool0 {    // max capacity
 
         return log.swims(id);
     }
+
 
     public synchronized long kidRests(int id) {
         if (contador_xiquets > 0) {
