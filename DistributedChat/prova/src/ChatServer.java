@@ -1,5 +1,3 @@
-package chat_distribuido;
-
 // CSD 2013, Pablo Galdámez
 //
 
@@ -25,6 +23,8 @@ public class ChatServer extends UnicastRemoteObject
    public ChatServer (ChatConfiguration conf) throws RemoteException {
       super (ChatConfiguration.the().getMyPort());
       this.conf = conf;
+
+
    }
 
    //
@@ -194,5 +194,7 @@ public class ChatServer extends UnicastRemoteObject
    {
       ChatServer cs = new ChatServer (ChatConfiguration.parse (args));
       cs.work ();
+       // new ChatRobot(ChatConfiguration.parse (args));
+
    }
 }

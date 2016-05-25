@@ -1,5 +1,3 @@
-package chat_distribuido;
-
 // This file MUST be implemented by students when completing activity 3
 // 
 

@@ -1,5 +1,3 @@
-package chat_distribuido;
-
 // CSD 2013, Pablo Galdámez
 import java.rmi.*;
 import java.rmi.server.*;
@@ -19,7 +17,7 @@ public class ChatConfiguration {
    //private int nsPort = 1099;
    private int nsPort = 9000; 
    private String serverName = "TestServer";
-   private int myPort = 9001;
+   private int myPort = 9055;
    private String channelName="#Friends";
    
    //

@@ -1,5 +1,3 @@
-package chat_distribuido;
-
 // CSD 2013, Pablo Galdámez
 import java.rmi.*;
 import java.rmi.server.*;

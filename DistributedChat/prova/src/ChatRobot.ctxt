@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=conf
+comment0.target=ChatRobot(ChatConfiguration)
+comment1.params=serverName
+comment1.target=void\ conectar(java.lang.String)
+comment2.params=channelName
+comment2.target=void\ doJoinChannel(java.lang.String)
+comment3.params=dst\ msg
+comment3.target=void\ doSendChannelMessage(java.lang.String,\ java.lang.String)
+comment4.params=msg
+comment4.target=void\ messageArrived(IChatMessage)
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+numComments=6
